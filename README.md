@@ -23,6 +23,11 @@ ESPHome needs to be installed and functioning:
   
 ![Home Assistant device view](/images/hass-device.png?raw=true "Home Assistant device view")
 
+## Automations
+I use NodeRed to automate many aspects of my smart home. Here are a couple related to my garage to get you going.
+- Notify via pushover if the garage door is open for 15 minutes [json](NodeRed%20Flows/notify-door-open.json) ![NodeRed](/images/garage-notify.png)
+- Quick reset the output on the "button push" (There is probably a better way to do this but I found this to be effective) [json](NodeRed%20Flows/quick-trigger.json) ![NodeRed](images/quick-trigger.png)
+
 ## To Do...
 There's two WS2812b on the board that I haven't found a use for yet, they could be used for a number of things though. examples:
 - Countdown timer until autmoated shut of garage door

@@ -1,0 +1,115 @@
+[
+    {
+        "id": "62e9429b.66035c",
+        "type": "server-state-changed",
+        "z": "507c6540.729e2c",
+        "name": "Garage Door Status",
+        "server": "9eb6fb43.bf6408",
+        "version": 4,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.door1_in",
+        "entityidfiltertype": "exact",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": "15",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "3354b978a53a80ee"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "fc47f580.67d308",
+        "type": "pushover",
+        "z": "507c6540.729e2c",
+        "name": "",
+        "device": "",
+        "title": "The garage was left open",
+        "priority": 0,
+        "sound": "pushover",
+        "url": "",
+        "url_title": "",
+        "html": false,
+        "credentials": {},
+        "x": 610,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3354b978a53a80ee",
+        "type": "function",
+        "z": "507c6540.729e2c",
+        "name": "",
+        "func": "msg.payload = \"Garage door open for 15 minutes\";\nmsg.topic = \"The garage door was left OPEN\"\nreturn [ msg ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 80,
+        "wires": [
+            [
+                "fc47f580.67d308"
+            ]
+        ]
+    },
+    {
+        "id": "9eb6fb43.bf6408",
+        "type": "server",
+        "name": "Home Assistant",
+        "version": 2,
+        "addon": true,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "",
+        "connectionDelay": false,
+        "cacheJson": false,
+        "heartbeat": true,
+        "heartbeatInterval": "60"
+    }
+]

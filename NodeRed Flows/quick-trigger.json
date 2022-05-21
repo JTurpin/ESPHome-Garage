@@ -1,0 +1,164 @@
+[
+    {
+        "id": "2b10d4f16dc0e08f",
+        "type": "api-call-service",
+        "z": "507c6540.729e2c",
+        "name": "Garage Door Trigger",
+        "server": "9eb6fb43.bf6408",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "switch",
+        "service": "turn_off",
+        "areaId": [],
+        "deviceId": [
+            "1c568abd7affef497c3a1ad79b1600da"
+        ],
+        "entityId": [
+            "switch.double_garage_door_1"
+        ],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": true,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 760,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fa526e050b651be1",
+        "type": "delay",
+        "z": "507c6540.729e2c",
+        "name": "100ms",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 160,
+        "wires": [
+            [
+                "2b10d4f16dc0e08f"
+            ]
+        ]
+    },
+    {
+        "id": "bfe24c8213377d95",
+        "type": "api-call-service",
+        "z": "507c6540.729e2c",
+        "name": "Garage Door Trigger",
+        "server": "9eb6fb43.bf6408",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "switch",
+        "service": "turn_on",
+        "areaId": [],
+        "deviceId": [
+            "1c568abd7affef497c3a1ad79b1600da"
+        ],
+        "entityId": [
+            "switch.double_garage_door_1"
+        ],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 380,
+        "y": 160,
+        "wires": [
+            [
+                "fa526e050b651be1"
+            ]
+        ]
+    },
+    {
+        "id": "a51cc0b5133f46e7",
+        "type": "server-state-changed",
+        "z": "507c6540.729e2c",
+        "name": "Garage Trigger",
+        "server": "9eb6fb43.bf6408",
+        "version": 4,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "switch.double_garage_door_1",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": false,
+        "for": "100",
+        "forType": "num",
+        "forUnits": "milliseconds",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "bfe24c8213377d95"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "9eb6fb43.bf6408",
+        "type": "server",
+        "name": "Home Assistant",
+        "version": 2,
+        "addon": true,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "",
+        "connectionDelay": false,
+        "cacheJson": false,
+        "heartbeat": true,
+        "heartbeatInterval": "60"
+    }
+]
