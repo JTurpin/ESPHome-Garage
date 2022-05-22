@@ -31,5 +31,5 @@ I use NodeRed to automate many aspects of my smart home. Here are a couple relat
 ## To Do...
 There's two WS2812b on the board that I haven't found a use for yet, they could be used for a number of things though. examples:
 - Countdown timer until autmoated shut of garage door
-- Guage estimates like [this](images/lovelace_gauge_segments.png) for Temp, VOC, Humidity, CO2.
+- Gauge estimates like [this](images/lovelace_gauge_segments.png) for Temp, VOC, Humidity, CO2.
 - etc
